@@ -31,6 +31,23 @@ function shuffle(array) {
     return array;
 }
 
+cards = shuffle(cards);
+
+cards.forEach(card => {
+    const li = document.createElement('li');
+    li.classList.add('card');
+    const i = document.createElement('i');
+    i.classList.add('fa');
+    i.classList.add(card.symbolClass);
+    li.appendChild(i);
+    card.htmlElement = li;
+});
+
+const deckUl = document.getElementsByClassName('deck')[0];
+cards.forEach(card => {
+    deckUl.appendChild(card.htmlElement);
+});
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
