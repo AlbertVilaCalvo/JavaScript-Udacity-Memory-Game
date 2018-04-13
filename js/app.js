@@ -1,6 +1,12 @@
 /*
  * Create a list that holds all of your cards
  */
+let cards = new Array();
+const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
+symbolClasses.forEach(symbolClass => {
+    cards.push({symbolClass: symbolClass});
+    cards.push({symbolClass: symbolClass});
+});
 
 
 /*
