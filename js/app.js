@@ -30,6 +30,11 @@ class Card {
     isMatched() {
         return this.matched;
     }
+
+    hide() {
+        this.htmlElement.classList.remove('show');
+        this.htmlElement.classList.remove('open');
+    }
 }
 
 
@@ -110,10 +115,8 @@ function evaluateMatch() {
         openCard2.match()
     } else {
         setTimeout(() => {
-            openCard1.htmlElement.classList.remove('show');
-            openCard1.htmlElement.classList.remove('open');
-            openCard2.htmlElement.classList.remove('show');
-            openCard2.htmlElement.classList.remove('open');
+            openCard1.hide();
+            openCard2.hide();
         }, 800);
     }
 }
