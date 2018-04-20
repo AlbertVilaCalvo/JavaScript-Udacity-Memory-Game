@@ -108,15 +108,15 @@ function numberOfOpenCards(cards) {
 
 function evaluateMatch() {
     const openCardsNotMatched = cards.filter(card => card.isOpen() && !card.isMatched());
-    const openCard1 = openCardsNotMatched[0];
-    const openCard2 = openCardsNotMatched[1];
-    if (openCard1.matches(openCard2)) {
-        openCard1.match();
-        openCard2.match()
+    const card1 = openCardsNotMatched[0];
+    const card2 = openCardsNotMatched[1];
+    if (card1.matches(card2)) {
+        card1.match();
+        card2.match()
     } else {
         setTimeout(() => {
-            openCard1.hide();
-            openCard2.hide();
+            card1.hide();
+            card2.hide();
         }, 800);
     }
 }
