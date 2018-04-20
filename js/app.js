@@ -1,3 +1,24 @@
+
+class Card {
+
+    constructor(symbolClass) {
+        this.symbolClass = symbolClass;
+
+        const li = document.createElement('li');
+        li.classList.add('card');
+        const i = document.createElement('i');
+        i.classList.add('fa');
+        i.classList.add(symbolClass);
+        li.appendChild(i);
+        this.htmlElement = li;
+    }
+
+    isOpen() {
+        return this.htmlElement.className.includes('open')
+    }
+}
+
+
 /*
  * Create a list that holds all of your cards
  */
@@ -5,8 +26,8 @@
 let cards = new Array();
 const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
 symbolClasses.forEach(symbolClass => {
-    cards.push({symbolClass: symbolClass});
-    cards.push({symbolClass: symbolClass});
+    cards.push(new Card(symbolClass));
+    cards.push(new Card(symbolClass));
 });
 
 
@@ -34,15 +55,15 @@ function shuffle(array) {
 
 cards = shuffle(cards);
 
-cards.forEach(card => {
-    const li = document.createElement('li');
-    li.classList.add('card');
-    const i = document.createElement('i');
-    i.classList.add('fa');
-    i.classList.add(card.symbolClass);
-    li.appendChild(i);
-    card.htmlElement = li;
-});
+// cards.forEach(card => {
+//     const li = document.createElement('li');
+//     li.classList.add('card');
+//     const i = document.createElement('i');
+//     i.classList.add('fa');
+//     i.classList.add(card.symbolClass);
+//     li.appendChild(i);
+//     card.htmlElement = li;
+// });
 
 const cardsContainer = document.getElementsByClassName('deck')[0]; // ul
 cards.forEach(card => {
@@ -73,6 +94,6 @@ cardsContainer.addEventListener('click', event => {
 
 function evaluateMatch() {
     cards.forEach(card => {
-        console.log(card.htmlElement);
+        console.log(card.isOpen());
     });
 }
