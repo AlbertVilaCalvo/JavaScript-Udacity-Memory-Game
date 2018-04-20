@@ -11,16 +11,14 @@ class Card {
         i.classList.add(symbolClass);
         li.appendChild(i);
         this.htmlElement = li;
-
-        this.matched = false
     }
 
     isOpen() {
-        return this.htmlElement.className.includes('open')
+        return this.htmlElement.className.includes('open');
     }
 
     match() {
-        this.matched = true;
+        this.htmlElement.classList.add('match');
     }
 
     matches(card) {
@@ -28,7 +26,7 @@ class Card {
     }
 
     isMatched() {
-        return this.matched;
+        return this.htmlElement.className.includes('match');
     }
 
     hide() {
