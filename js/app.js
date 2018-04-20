@@ -65,7 +65,7 @@ function shuffle(array) {
 
 cards = shuffle(cards);
 
-const cardsContainer = document.getElementsByClassName('deck')[0]; // ul
+const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
 cards.forEach(card => {
     cardsContainer.appendChild(card.htmlElement);
 });
@@ -88,28 +88,28 @@ const openCards = new Array();
 cardsContainer.addEventListener('click', event => {
     event.target.classList.add('show');
     event.target.classList.add('open');
-    evaluateMatch();
-});
-
-function evaluateMatch() {
     if (numberOfOpenCards(cards) % 2 == 0) {
-        const openCardsNotMatched = cards.filter(card => card.isOpen() && !card.isMatched());
-        const firstCard = openCardsNotMatched[0];
-        const secondCard = openCardsNotMatched[1];
-        if (firstCard.symbolClass === secondCard.symbolClass) {
-            firstCard.match();
-            secondCard.match()
-        } else {
-            setTimeout(() => {
-                firstCard.htmlElement.classList.remove('show');
-                firstCard.htmlElement.classList.remove('open');
-                secondCard.htmlElement.classList.remove('show');
-                secondCard.htmlElement.classList.remove('open');
-            }, 800);
-        }
+        evaluateMatch();
     }
-}
+});
 
 function numberOfOpenCards(cards) {
     return cards.filter(card => card.isOpen()).length;
+}
+
+function evaluateMatch() {
+    const openCardsNotMatched = cards.filter(card => card.isOpen() && !card.isMatched());
+    const openCard1 = openCardsNotMatched[0];
+    const openCard2 = openCardsNotMatched[1];
+    if (openCard1.symbolClass === openCard2.symbolClass) {
+        openCard1.match();
+        openCard2.match()
+    } else {
+        setTimeout(() => {
+            openCard1.htmlElement.classList.remove('show');
+            openCard1.htmlElement.classList.remove('open');
+            openCard2.htmlElement.classList.remove('show');
+            openCard2.htmlElement.classList.remove('open');
+        }, 800);
+    }
 }
