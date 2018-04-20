@@ -11,10 +11,20 @@ class Card {
         i.classList.add(symbolClass);
         li.appendChild(i);
         this.htmlElement = li;
+
+        this.matched = false
     }
 
     isOpen() {
         return this.htmlElement.className.includes('open')
+    }
+
+    match() {
+        this.matched = true;
+    }
+
+    isMatched() {
+        return this.matched;
     }
 }
 
@@ -55,16 +65,6 @@ function shuffle(array) {
 
 cards = shuffle(cards);
 
-// cards.forEach(card => {
-//     const li = document.createElement('li');
-//     li.classList.add('card');
-//     const i = document.createElement('i');
-//     i.classList.add('fa');
-//     i.classList.add(card.symbolClass);
-//     li.appendChild(i);
-//     card.htmlElement = li;
-// });
-
 const cardsContainer = document.getElementsByClassName('deck')[0]; // ul
 cards.forEach(card => {
     cardsContainer.appendChild(card.htmlElement);
@@ -91,9 +91,25 @@ cardsContainer.addEventListener('click', event => {
     evaluateMatch();
 });
 
-
 function evaluateMatch() {
-    cards.forEach(card => {
-        console.log(card.isOpen());
-    });
+    if (numberOfOpenCards(cards) % 2 == 0) {
+        const openCardsNotMatched = cards.filter(card => card.isOpen() && !card.isMatched());
+        const firstCard = openCardsNotMatched[0];
+        const secondCard = openCardsNotMatched[1];
+        if (firstCard.symbolClass === secondCard.symbolClass) {
+            firstCard.match();
+            secondCard.match()
+        } else {
+            setTimeout(() => {
+                firstCard.htmlElement.classList.remove('show');
+                firstCard.htmlElement.classList.remove('open');
+                secondCard.htmlElement.classList.remove('show');
+                secondCard.htmlElement.classList.remove('open');
+            }, 800);
+        }
+    }
+}
+
+function numberOfOpenCards(cards) {
+    return cards.filter(card => card.isOpen()).length;
 }
