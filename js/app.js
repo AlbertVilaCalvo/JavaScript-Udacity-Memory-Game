@@ -92,18 +92,27 @@ cards.forEach(card => {
  */
 
 
-const openCards = new Array();
+let moveCount = 0;
+let moveCountElement = document.getElementsByClassName('moves')[0];
 
 cardsContainer.addEventListener('click', event => {
     event.target.classList.add('show');
     event.target.classList.add('open');
+
     if (numberOfOpenCards(cards) % 2 == 0) {
+        moveCount++;
+        renderMoveCount();
+
         evaluateMatch();
     }
 });
 
 function numberOfOpenCards(cards) {
     return cards.filter(card => card.isOpen()).length;
+}
+
+function renderMoveCount() {
+    moveCountElement.textContent = moveCount;
 }
 
 function evaluateMatch() {
