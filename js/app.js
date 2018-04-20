@@ -96,18 +96,26 @@ let moveCount = 0;
 const moveCountElement = document.getElementsByClassName('moves')[0];
 
 cardsContainer.addEventListener('click', event => {
+    if (allCardsMatched()) {
+        return;
+    }
+
     event.target.classList.add('show');
     event.target.classList.add('open');
 
-    if (numberOfOpenCards(cards) % 2 == 0) {
+    if (numberOfOpenCards() % 2 == 0) {
         moveCount++;
         renderMoveCount();
 
         evaluateMatch();
+
+        if (allCardsMatched()) {
+            console.log("You won");
+        }
     }
 });
 
-function numberOfOpenCards(cards) {
+function numberOfOpenCards() {
     return cards.filter(card => card.isOpen()).length;
 }
 
@@ -128,4 +136,8 @@ function evaluateMatch() {
             card2.hide();
         }, 800);
     }
+}
+
+function allCardsMatched() {
+    return cards.filter(card => !card.isMatched()).length == 0;
 }
