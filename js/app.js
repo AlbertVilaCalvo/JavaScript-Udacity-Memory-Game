@@ -1,6 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
+
 let cards = new Array();
 const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
 symbolClasses.forEach(symbolClass => {
@@ -43,9 +44,9 @@ cards.forEach(card => {
     card.htmlElement = li;
 });
 
-const deckUl = document.getElementsByClassName('deck')[0];
+const cardsContainer = document.getElementsByClassName('deck')[0]; // ul
 cards.forEach(card => {
-    deckUl.appendChild(card.htmlElement);
+    cardsContainer.appendChild(card.htmlElement);
 });
 
 
