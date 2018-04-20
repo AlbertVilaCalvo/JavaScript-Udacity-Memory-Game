@@ -93,7 +93,7 @@ cards.forEach(card => {
 
 
 let moveCount = 0;
-let moveCountElement = document.getElementsByClassName('moves')[0];
+const moveCountElement = document.getElementsByClassName('moves')[0];
 
 cardsContainer.addEventListener('click', event => {
     event.target.classList.add('show');
