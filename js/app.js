@@ -23,6 +23,10 @@ class Card {
         this.matched = true;
     }
 
+    matches(card) {
+        return this.symbolClass === card.symbolClass;
+    }
+
     isMatched() {
         return this.matched;
     }
@@ -101,7 +105,7 @@ function evaluateMatch() {
     const openCardsNotMatched = cards.filter(card => card.isOpen() && !card.isMatched());
     const openCard1 = openCardsNotMatched[0];
     const openCard2 = openCardsNotMatched[1];
-    if (openCard1.symbolClass === openCard2.symbolClass) {
+    if (openCard1.matches(openCard2)) {
         openCard1.match();
         openCard2.match()
     } else {
