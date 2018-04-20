@@ -113,6 +113,10 @@ cardsContainer.addEventListener('click', event => {
     }
 });
 
+function allCardsMatched() {
+    return cards.filter(card => !card.isMatched()).length == 0;
+}
+
 function numberOfOpenCards() {
     return cards.filter(card => card.isOpen()).length;
 }
@@ -134,8 +138,4 @@ function evaluateMatch() {
             card2.hide();
         }, 800);
     }
-}
-
-function allCardsMatched() {
-    return cards.filter(card => !card.isMatched()).length == 0;
 }
