@@ -119,6 +119,10 @@ cardsContainer.addEventListener('click', event => {
         return;
     }
 
+    if (numberOfOpenCards() >= 2) {
+        return;
+    }
+
     event.target.classList.add('show');
     event.target.classList.add('open');
 
