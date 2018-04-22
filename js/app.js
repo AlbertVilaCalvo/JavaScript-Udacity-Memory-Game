@@ -36,8 +36,8 @@ class Card {
     }
 
     hide() {
-        this.htmlElement.classList.remove('show');
         this.htmlElement.classList.remove('open');
+        this.htmlElement.classList.remove('show');
     }
 }
 
@@ -123,10 +123,10 @@ cardsContainer.addEventListener('click', event => {
         return;
     }
 
-    event.target.classList.add('show');
     event.target.classList.add('open');
+    event.target.classList.add('show');
 
-    if (numberOfOpenCards() % 2 == 0) {
+    if (numberOfOpenCards() == 2) {
         moveCount++;
         renderMoveCount();
 
