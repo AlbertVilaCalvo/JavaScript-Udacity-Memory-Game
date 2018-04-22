@@ -47,6 +47,8 @@ const moveCountElement = document.getElementsByClassName('moves')[0];
 const restartButton = document.getElementsByClassName('restart')[0];
 const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
 const timerElement = document.getElementsByClassName('timer')[0];
+const starRatingContainer = document.getElementsByClassName('stars')[0]; // <ul>
+const starListItems = starRatingContainer.getElementsByTagName('li'); // <li>
 
 
 /*
@@ -60,6 +62,7 @@ let cards;
 /** @type {number} */
 let moveCount;
 
+/** @type {number} */
 let timer;
 
 
@@ -132,6 +135,7 @@ cardsContainer.addEventListener('click', event => {
     if (numberOfOpenCards() == 2) {
         moveCount++;
         renderMoveCount();
+        renderStarRating();
 
         evaluateMatch();
 
@@ -193,6 +197,15 @@ function stopTimer() {
 }
 
 
+function renderStarRating() {
+    const filledStar = 'fa fa-star';
+    const emptyStar = 'fa fa-star-o';
+    starListItems[0].firstChild.className = moveCount > 30 ? emptyStar : filledStar;
+    starListItems[1].firstChild.className = moveCount > 20 ? emptyStar : filledStar;
+    starListItems[2].firstChild.className = moveCount > 10 ? emptyStar : filledStar;
+}
+
+
 function removeAllCardsContainerChildren() {
     while(cardsContainer.firstChild) {
         cardsContainer.removeChild(cardsContainer.firstChild);
@@ -203,9 +216,13 @@ function initGame() {
     removeAllCardsContainerChildren();
     initCardsArray();
     addCardsHTMLToCardsContainer();
+
     moveCount = 0;
     renderMoveCount();
+
     startTimer();
+
+    renderStarRating();
 }
 
 initGame();
