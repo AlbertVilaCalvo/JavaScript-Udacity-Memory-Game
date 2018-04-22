@@ -131,7 +131,7 @@ function numberOfOpenCards() {
 }
 
 function renderMoveCount() {
-    moveCountElement.textContent = moveCount;
+    moveCountElement.textContent = moveCount.toString();
 }
 
 function evaluateMatch() {
