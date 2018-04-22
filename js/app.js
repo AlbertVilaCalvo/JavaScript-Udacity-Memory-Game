@@ -1,7 +1,9 @@
+//@ts-check
 
 class Card {
 
     constructor(symbolClass) {
+        /** @type {string} */
         this.symbolClass = symbolClass;
 
         const li = document.createElement('li');
@@ -13,6 +15,7 @@ class Card {
         this.htmlElement = li;
     }
 
+    /** @returns {boolean} */
     isOpen() {
         return this.htmlElement.className.includes('open');
     }
@@ -21,10 +24,12 @@ class Card {
         this.htmlElement.classList.add('match');
     }
 
+    /** @returns {boolean} */
     matches(card) {
         return this.symbolClass === card.symbolClass;
     }
 
+    /** @returns {boolean} */
     isMatched() {
         return this.htmlElement.className.includes('match');
     }
@@ -40,7 +45,10 @@ class Card {
  * Create a list that holds all of your cards
  */
 
+/** @type {Array.<Card>} */
 let cards = new Array();
+
+/** @type {Array.<string>} */
 const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
 symbolClasses.forEach(symbolClass => {
     cards.push(new Card(symbolClass));
@@ -108,6 +116,7 @@ cardsContainer.addEventListener('click', event => {
         evaluateMatch();
 
         if (allCardsMatched()) {
+            // TODO show modal
             console.log("You won");
         }
     }
