@@ -41,12 +41,22 @@ class Card {
 }
 
 
+// Elements
+const moveCountElement = document.getElementsByClassName('moves')[0];
+const restartButton = document.getElementsByClassName('restart')[0];
+const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
+
+
 /*
  * Create a list that holds all of your cards
  */
 
+// GAME STATE
 /** @type {Array.<Card>} */
 let cards;
+
+/** @type {number} */
+let moveCount;
 
 
 /*
@@ -85,8 +95,6 @@ function initCardsArray() {
     cards = shuffle(tempCards);
 }
 
-const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
-
 function addCardsHTMLToPage() {
     cards.forEach(card => {
         cardsContainer.appendChild(card.htmlElement);
@@ -104,10 +112,6 @@ function addCardsHTMLToPage() {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-
-
-let moveCount = 0;
-const moveCountElement = document.getElementsByClassName('moves')[0];
 
 cardsContainer.addEventListener('click', event => {
     if (allCardsMatched()) {
@@ -158,8 +162,6 @@ function evaluateMatch() {
 }
 
 
-// Restart button
-const restartButton = document.getElementsByClassName('restart')[0];
 restartButton.addEventListener('click', (event) => {
     initGame();
 });
