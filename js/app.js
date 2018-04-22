@@ -21,6 +21,7 @@ class Card {
     }
 
     match() {
+        this.hide();
         this.htmlElement.classList.add('match');
     }
 
@@ -149,9 +150,9 @@ function renderMoveCount() {
 }
 
 function evaluateMatch() {
-    const openCardsNotMatched = cards.filter(card => card.isOpen() && !card.isMatched());
-    const card1 = openCardsNotMatched[0];
-    const card2 = openCardsNotMatched[1];
+    const openCards = cards.filter(card => card.isOpen());
+    const card1 = openCards[0];
+    const card2 = openCards[1];
     if (card1.matches(card2)) {
         card1.match();
         card2.match()
