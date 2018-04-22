@@ -134,10 +134,12 @@ cardsContainer.addEventListener('click', event => {
     }
 });
 
+/** @returns {boolean} */
 function allCardsMatched() {
     return cards.filter(card => !card.isMatched()).length == 0;
 }
 
+/** @returns {number} */
 function numberOfOpenCards() {
     return cards.filter(card => card.isOpen()).length;
 }
