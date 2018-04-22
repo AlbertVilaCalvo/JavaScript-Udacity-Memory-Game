@@ -46,14 +46,7 @@ class Card {
  */
 
 /** @type {Array.<Card>} */
-let cards = new Array();
-
-/** @type {Array.<string>} */
-const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
-symbolClasses.forEach(symbolClass => {
-    cards.push(new Card(symbolClass));
-    cards.push(new Card(symbolClass));
-});
+let cards;
 
 
 /*
@@ -78,12 +71,27 @@ function shuffle(array) {
     return array;
 }
 
-cards = shuffle(cards);
+function initCardsArray() {
+    /** @type {Array.<Card>} */
+    const tempCards = new Array();
+
+    /** @type {Array.<string>} */
+    const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
+    symbolClasses.forEach(symbolClass => {
+        tempCards.push(new Card(symbolClass));
+        tempCards.push(new Card(symbolClass));
+    });
+
+    cards = shuffle(tempCards);
+}
 
 const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
-cards.forEach(card => {
-    cardsContainer.appendChild(card.htmlElement);
-});
+
+function addCardsHTMLToPage() {
+    cards.forEach(card => {
+        cardsContainer.appendChild(card.htmlElement);
+    });
+}
 
 
 /*
@@ -148,3 +156,26 @@ function evaluateMatch() {
         }, 800);
     }
 }
+
+
+// Restart button
+const restartButton = document.getElementsByClassName('restart')[0];
+restartButton.addEventListener('click', (event) => {
+    initGame();
+});
+
+function removeAllCardsContainerChildren() {
+    while(cardsContainer.firstChild) {
+        cardsContainer.removeChild(cardsContainer.firstChild);
+    }
+}
+
+function initGame() {
+    removeAllCardsContainerChildren();
+    initCardsArray();
+    addCardsHTMLToPage();
+    moveCount = 0;
+    renderMoveCount();
+}
+
+initGame();
