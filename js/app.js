@@ -95,7 +95,7 @@ function initCardsArray() {
     cards = shuffle(tempCards);
 }
 
-function addCardsHTMLToPage() {
+function addCardsHTMLToCardsContainer() {
     cards.forEach(card => {
         cardsContainer.appendChild(card.htmlElement);
     });
@@ -177,7 +177,7 @@ function removeAllCardsContainerChildren() {
 function initGame() {
     removeAllCardsContainerChildren();
     initCardsArray();
-    addCardsHTMLToPage();
+    addCardsHTMLToCardsContainer();
     moveCount = 0;
     renderMoveCount();
 }
