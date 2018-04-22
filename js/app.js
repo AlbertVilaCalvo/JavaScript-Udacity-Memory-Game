@@ -46,6 +46,7 @@ class Card {
 const moveCountElement = document.getElementsByClassName('moves')[0];
 const restartButton = document.getElementsByClassName('restart')[0];
 const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
+const timerElement = document.getElementsByClassName('timer')[0];
 
 
 /*
@@ -58,6 +59,8 @@ let cards;
 
 /** @type {number} */
 let moveCount;
+
+let timer;
 
 
 /*
@@ -133,6 +136,8 @@ cardsContainer.addEventListener('click', event => {
         evaluateMatch();
 
         if (allCardsMatched()) {
+            stopTimer();
+
             // TODO show modal
             console.log("You won");
         }
@@ -173,6 +178,21 @@ restartButton.addEventListener('click', (event) => {
     initGame();
 });
 
+
+// Timer
+function startTimer() {
+    stopTimer();
+    timerElement.innerHTML = '0';
+    timer = setInterval(() => {
+        timerElement.innerHTML = (parseFloat(timerElement.innerHTML) + 1).toString();
+    }, 1000);
+}
+
+function stopTimer() {
+    clearTimeout(timer);
+}
+
+
 function removeAllCardsContainerChildren() {
     while(cardsContainer.firstChild) {
         cardsContainer.removeChild(cardsContainer.firstChild);
@@ -185,6 +205,7 @@ function initGame() {
     addCardsHTMLToCardsContainer();
     moveCount = 0;
     renderMoveCount();
+    startTimer();
 }
 
 initGame();
