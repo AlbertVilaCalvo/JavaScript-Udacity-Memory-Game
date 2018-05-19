@@ -49,6 +49,7 @@ const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
 const timerElement = document.getElementsByClassName('timer')[0];
 const starRatingContainer = document.getElementsByClassName('stars')[0]; // <ul>
 const starListItems = starRatingContainer.getElementsByTagName('li'); // <li>s
+const winOverlay = document.getElementsByClassName('win-overlay')[0];
 
 
 /*
@@ -122,6 +123,7 @@ function addCardsHTMLToCardsContainer() {
 
 cardsContainer.addEventListener('click', event => {
     if (allCardsMatched()) {
+        showWinOverlay();
         return;
     }
 
@@ -151,6 +153,12 @@ cardsContainer.addEventListener('click', event => {
 /** @returns {boolean} */
 function allCardsMatched() {
     return cards.filter(card => !card.isMatched()).length == 0;
+}
+
+function showWinOverlay() {
+    winOverlay.style.width = "100%";
+    winOverlay.style.height = "100%";
+    winOverlay.style.visibility = 'visible';
 }
 
 /** @returns {number} */
@@ -206,7 +214,7 @@ function stopTimer() {
 
 
 function removeAllCardsContainerChildren() {
-    while(cardsContainer.firstChild) {
+    while (cardsContainer.firstChild) {
         cardsContainer.removeChild(cardsContainer.firstChild);
     }
 }
@@ -225,3 +233,5 @@ function initGame() {
 }
 
 initGame();
+
+
