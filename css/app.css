@@ -152,4 +152,5 @@ h1 {
     color: white;
     padding: 4px 28px;
     margin-top: 10px;
+    cursor: pointer;
 }

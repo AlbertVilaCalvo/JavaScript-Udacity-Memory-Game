@@ -49,8 +49,10 @@ const cardsContainer = document.getElementsByClassName('deck')[0]; // <ul>
 const timerElement = document.getElementsByClassName('timer')[0];
 const starRatingContainer = document.getElementsByClassName('stars')[0]; // <ul>
 const starListItems = starRatingContainer.getElementsByTagName('li'); // <li>s
+// Win overlay elements
 const winOverlay = document.getElementsByClassName('win-overlay')[0];
 const playAgainButton = document.getElementsByClassName('win-overlay-button')[0];
+const winMessageTextElement = document.getElementsByClassName('win-overlay-summary')[0];
 
 
 /*
@@ -166,9 +168,23 @@ function renderMoveCount() {
 function renderStarRating() {
     const filledStar = 'fa fa-star';
     const emptyStar = 'fa fa-star-o';
-    starListItems[0].firstChild.className = moveCount > 30 ? emptyStar : filledStar;
-    starListItems[1].firstChild.className = moveCount > 20 ? emptyStar : filledStar;
-    starListItems[2].firstChild.className = moveCount > 10 ? emptyStar : filledStar;
+    const numberOfStars = getNumberOfStars();
+    starListItems[0].firstChild.className = numberOfStars >= 1 ? filledStar : emptyStar;
+    starListItems[1].firstChild.className = numberOfStars >= 2 ? filledStar : emptyStar;
+    starListItems[2].firstChild.className = numberOfStars >= 3 ? filledStar : emptyStar;
+}
+
+/** @returns {number} */
+function getNumberOfStars() {
+    if (moveCount > 35) {
+        return 0;
+    } else if (moveCount > 25) {
+        return 1;
+    } else if (moveCount > 15) {
+        return 2;
+    } else {
+        return 3;
+    }
 }
 
 function evaluateMatch() {
@@ -191,9 +207,11 @@ restartButton.addEventListener('click', (event) => {
     initGame();
 });
 
+
 // Win Overlay
 
 function showWinOverlay() {
+    winMessageTextElement.innerHTML = `With ${moveCount} moves and ${getNumberOfStars()} stars.`;
     winOverlay.style.height = "100%";
     winOverlay.style.visibility = 'visible';
 }
