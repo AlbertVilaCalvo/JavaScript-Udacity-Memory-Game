@@ -52,7 +52,8 @@ const starListItems = starRatingContainer.getElementsByTagName('li'); // <li>s
 // Win overlay elements
 const winOverlay = document.getElementsByClassName('win-overlay')[0];
 const playAgainButton = document.getElementsByClassName('win-overlay-button')[0];
-const winMessageTextElement = document.getElementsByClassName('win-overlay-summary')[0];
+const winMessageMovesStarsTextElement = document.getElementsByClassName('win-overlay-summary')[0];
+const winMessageTimeTextElement = document.getElementsByClassName('win-overlay-summary')[1];
 
 
 /*
@@ -144,8 +145,8 @@ cardsContainer.addEventListener('click', event => {
         evaluateMatch();
 
         if (allCardsMatched()) {
+            // User won!
             stopTimer();
-
             showWinOverlay();
         }
     }
@@ -211,7 +212,8 @@ restartButton.addEventListener('click', (event) => {
 // Win Overlay
 
 function showWinOverlay() {
-    winMessageTextElement.innerHTML = `With ${moveCount} moves and ${getNumberOfStars()} stars.`;
+    winMessageMovesStarsTextElement.innerHTML = `With ${moveCount} moves and ${getNumberOfStars()} stars.`;
+    winMessageTimeTextElement.innerHTML = `It took you ${timerElement.innerHTML} seconds.`;
     winOverlay.style.height = "100%";
     winOverlay.style.visibility = 'visible';
 }
