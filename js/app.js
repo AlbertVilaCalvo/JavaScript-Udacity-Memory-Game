@@ -50,6 +50,7 @@ const timerElement = document.getElementsByClassName('timer')[0];
 const starRatingContainer = document.getElementsByClassName('stars')[0]; // <ul>
 const starListItems = starRatingContainer.getElementsByTagName('li'); // <li>s
 const winOverlay = document.getElementsByClassName('win-overlay')[0];
+const playAgainButton = document.getElementsByClassName('win-overlay-button')[0];
 
 
 /*
@@ -123,7 +124,6 @@ function addCardsHTMLToCardsContainer() {
 
 cardsContainer.addEventListener('click', event => {
     if (allCardsMatched()) {
-        showWinOverlay();
         return;
     }
 
@@ -144,8 +144,7 @@ cardsContainer.addEventListener('click', event => {
         if (allCardsMatched()) {
             stopTimer();
 
-            // TODO show modal
-            console.log("You won");
+            showWinOverlay();
         }
     }
 });
@@ -153,12 +152,6 @@ cardsContainer.addEventListener('click', event => {
 /** @returns {boolean} */
 function allCardsMatched() {
     return cards.filter(card => !card.isMatched()).length == 0;
-}
-
-function showWinOverlay() {
-    winOverlay.style.width = "100%";
-    winOverlay.style.height = "100%";
-    winOverlay.style.visibility = 'visible';
 }
 
 /** @returns {number} */
@@ -198,8 +191,26 @@ restartButton.addEventListener('click', (event) => {
     initGame();
 });
 
+// Win Overlay
+
+function showWinOverlay() {
+    winOverlay.style.height = "100%";
+    winOverlay.style.visibility = 'visible';
+}
+
+function hideWinOverlay() {
+    winOverlay.style.height = "0%";
+    winOverlay.style.visibility = 'hidden';
+}
+
+playAgainButton.addEventListener('click', (event) => {
+    hideWinOverlay();
+    initGame();
+});
+
 
 // Timer
+
 function startTimer() {
     stopTimer();
     timerElement.innerHTML = '0';
