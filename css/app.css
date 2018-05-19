@@ -148,8 +148,8 @@ h1 {
 
 .win-overlay-button {
     background-color: #02ccba;
-    border-radius: 4px;
-    text-decoration-color: white;
-    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    padding: 4px 28px;
     margin-top: 10px;
 }
