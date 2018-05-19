@@ -176,14 +176,14 @@ function renderStarRating() {
 
 /** @returns {number} */
 function getNumberOfStars() {
-    if (moveCount > 35) {
-        return 0;
-    } else if (moveCount > 25) {
-        return 1;
-    } else if (moveCount > 15) {
-        return 2;
-    } else {
+    if (moveCount <= 15) {
         return 3;
+    } else if (moveCount <= 25) {
+        return 2;
+    } else if (moveCount <= 35) {
+        return 1;
+    } else {
+        return 0;
     }
 }
 
