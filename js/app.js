@@ -130,6 +130,10 @@ cardsContainer.addEventListener('click', event => {
         return;
     }
 
+    if (timer == null) {
+        startTimer();
+    }
+
     if (numberOfOpenCards() >= 2) {
         return;
     }
@@ -231,9 +235,13 @@ playAgainButton.addEventListener('click', (event) => {
 
 // Timer
 
-function startTimer() {
+function resetTimer() {
     stopTimer();
+    timer = null;
     timerElement.innerHTML = '0';
+}
+
+function startTimer() {
     timer = setInterval(() => {
         timerElement.innerHTML = (parseFloat(timerElement.innerHTML) + 1).toString();
     }, 1000);
@@ -258,7 +266,7 @@ function initGame() {
     moveCount = 0;
     renderMoveCount();
 
-    startTimer();
+    resetTimer();
 
     renderStarRating();
 }
