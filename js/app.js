@@ -218,13 +218,11 @@ restartButton.addEventListener('click', (event) => {
 function showWinOverlay() {
     winMessageMovesStarsTextElement.innerHTML = `With ${moveCount} moves and ${getNumberOfStars()} stars.`;
     winMessageTimeTextElement.innerHTML = `It took you ${timerElement.innerHTML} seconds.`;
-    winOverlay.style.height = "100%";
-    winOverlay.style.visibility = 'visible';
+    winOverlay.classList.add('show');
 }
 
 function hideWinOverlay() {
-    winOverlay.style.height = "0%";
-    winOverlay.style.visibility = 'hidden';
+    winOverlay.classList.remove('show');
 }
 
 playAgainButton.addEventListener('click', (event) => {
