@@ -119,7 +119,7 @@ h1 {
 }
 
 .score-panel .restart:hover {
-    transform: rotate(1turn);
+    transform: rotate(1turn) scale(1.75);
 }
 
 .score-panel .timer {
