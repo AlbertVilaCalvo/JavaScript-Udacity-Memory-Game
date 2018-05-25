@@ -115,7 +115,7 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
-    transition: transform .32s ease-in-out;
+    transition: transform .31s ease-in-out;
 }
 
 .score-panel .restart:hover {
@@ -179,4 +179,15 @@ h1 {
 
 .win-overlay-button:hover {
     transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0px) }
+    30% { transform: translateY(30px) }
+    90% { transform: translateY(-5px) }
+    100% { transform: translateY(0px) }
+}
+
+.win-overlay.show * {
+    animation: bounce .4s .7s;
 }
