@@ -174,4 +174,9 @@ h1 {
     padding: 4px 28px;
     margin-top: 10px;
     cursor: pointer;
+    transition: .2s;
+}
+
+.win-overlay-button:hover {
+    transform: scale(1.1);
 }
