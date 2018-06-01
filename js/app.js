@@ -39,12 +39,12 @@ class Card {
         this.htmlElement.classList.remove('open', 'show');
     }
 
-    shake() {
-        this.htmlElement.classList.add('shake-animation');
+    startIncorrectGuessAnimation() {
+        this.htmlElement.classList.add('incorrect-guess');
     }
 
-    stopShake() {
-        this.htmlElement.classList.remove('shake-animation');
+    stopIncorrectGuessAnimation() {
+        this.htmlElement.classList.remove('incorrect-guess');
     }
 }
 
@@ -209,11 +209,11 @@ function evaluateMatch() {
         card1.match();
         card2.match();
     } else {
-        card1.shake();
-        card2.shake();
+        card1.startIncorrectGuessAnimation();
+        card2.startIncorrectGuessAnimation();
         setTimeout(() => {
-            card1.stopShake();
-            card2.stopShake();
+            card1.stopIncorrectGuessAnimation();
+            card2.stopIncorrectGuessAnimation();
             card1.hide();
             card2.hide();
         }, 800);
