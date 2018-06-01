@@ -38,6 +38,14 @@ class Card {
     hide() {
         this.htmlElement.classList.remove('open', 'show');
     }
+
+    shake() {
+        this.htmlElement.classList.add('shake-animation');
+    }
+
+    stopShake() {
+        this.htmlElement.classList.remove('shake-animation');
+    }
 }
 
 
@@ -201,7 +209,11 @@ function evaluateMatch() {
         card1.match();
         card2.match();
     } else {
+        card1.shake();
+        card2.shake();
         setTimeout(() => {
+            card1.stopShake();
+            card2.stopShake();
             card1.hide();
             card2.hide();
         }, 800);
