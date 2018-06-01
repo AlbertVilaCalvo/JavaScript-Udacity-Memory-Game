@@ -79,19 +79,20 @@ h1 {
     cursor: default;
 }
 
-.deck .card.incorrect-guess {
-    background: rgb(233, 93, 93);
-    animation: shake .8s;
-}
-
 .deck .card.show {
     font-size: 33px;
+}
+
+.deck .card.not-match-animation {
+    background: rgb(233, 93, 93);
+    animation: shake .8s;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    animation: match-animation .8s;
 }
 
 /*
@@ -120,7 +121,7 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
-    transition: transform .31s ease-in-out;
+    transition: transform .3s ease-in-out;
 }
 
 .score-panel .restart:hover {
@@ -201,13 +202,20 @@ h1 {
 /* animations */
 
 @keyframes shake {
-    /* 0% { transform: translate(0px) rotate(0deg) } */
+    /* 0% -> translate(0px) rotate(0deg) */
     10% { transform: translate(20px) rotate(4deg) }
-    /* 20% { transform: translate(0px) rotate(0deg) } */
+    /* 20% -> translate(0px) rotate(0deg) */
     30% { transform: translate(-15px) rotate(-3deg) }
-    /* 40% { transform: translate(0px) rotate(0deg) } */
+    /* 40% -> translate(0px) rotate(0deg) */
     50% { transform: translate(10px) rotate(2deg) }
-    /* 60% { transform: translate(0px) rotate(0deg) } */
+    /* 60% -> translate(0px) rotate(0deg) */
     70% { transform: translate(-5px) rotate(-1deg) }
-    /* 80% { transform: translate(0px) rotate(0deg) } */
+    /* 80% -> translate(0px) rotate(0deg) */
+}
+
+@keyframes match-animation {
+    10% { transform: scale(1.4, 0.6) }
+    30% { transform: scale(0.7, 1.3) }
+    50% { transform: scale(1.2, 0.8) }
+    70% { transform: scale(0.9, 1.1) }
 }
