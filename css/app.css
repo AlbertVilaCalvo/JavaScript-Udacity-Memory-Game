@@ -201,11 +201,6 @@ h1 {
 
 /* win overlay SVG */
 
-svg {
-    width: 100px;
-    height: 100px;
-}
-
 circle {
     fill: none;
     stroke: lightgreen;
