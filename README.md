@@ -2,6 +2,12 @@ Project for the Udacity Frontend Nanodegree
 
 Started from https://github.com/udacity/fend-project-memory-game
 
+Code from other students:
+https://codepen.io/t0mbr0wn/project/editor/ZBBOob
+https://github.com/udacity/fend-project-memory-game/pull/2/files
+
+The following is the original readme:
+
 # Memory Game Project
 
 ## Table of Contents
