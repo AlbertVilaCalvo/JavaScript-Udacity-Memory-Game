@@ -293,3 +293,9 @@ function initGame() {
 initGame();
 
 
+// Show the win overlay when clicking the 'Matching Game' header
+const header = document.getElementsByTagName('header')[0];
+header.addEventListener('click', (event) => {
+    showWinOverlay();
+});
+
