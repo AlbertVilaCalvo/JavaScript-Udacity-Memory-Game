@@ -194,7 +194,7 @@ h1 {
     100% { transform: translateY(0px) }
 }
 
-.win-overlay.show p {
+.win-overlay.show p, .win-overlay.show a {
     animation: bounce .4s .7s;
 }
 
