@@ -1,3 +1,5 @@
+Project for the Udacity Frontend Nanodegree
+
 Started from https://github.com/udacity/fend-project-memory-game
 
 # Memory Game Project
