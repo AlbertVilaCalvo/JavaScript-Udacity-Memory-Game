@@ -61,6 +61,8 @@ const winOverlay = document.getElementsByClassName('win-overlay')[0];
 const winPlayAgainButton = document.getElementsByClassName('win-overlay-button')[0];
 const winMessageMovesStarsTextElement = document.getElementsByClassName('win-overlay-summary')[0];
 const winMessageTimeTextElement = document.getElementsByClassName('win-overlay-summary')[1];
+const winCircleElement = document.getElementsByTagName('circle')[0];
+const winCheckElement = document.getElementsByTagName('polyline')[0];
 
 
 /*
@@ -232,10 +234,14 @@ function showWinOverlay() {
     winMessageMovesStarsTextElement.innerHTML = `With ${moveCount} moves and ${getNumberOfStars()} stars.`;
     winMessageTimeTextElement.innerHTML = `It took you ${timerElement.innerHTML} seconds.`;
     winOverlay.classList.add('show');
+    winCircleElement.classList.add('animate');
+    winCheckElement.classList.add('animate');
 }
 
 function hideWinOverlay() {
     winOverlay.classList.remove('show');
+    winCircleElement.classList.remove('animate');
+    winCheckElement.classList.remove('animate');
 }
 
 winPlayAgainButton.addEventListener('click', (event) => {
