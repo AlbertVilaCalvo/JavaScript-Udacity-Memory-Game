@@ -42,18 +42,19 @@ h1 {
     width: 380px;
     height: 380px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 8px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    margin: 0 0 3em 0;
 }
 
 @media (min-width: 460px) {
     .deck {
+        padding: 16px;
         width: 100%;
         height: 100%;
         max-width: calc(100vw - 80px);
@@ -63,6 +64,7 @@ h1 {
 
 @media (min-width: 700px) {
     .deck {
+        padding: 32px;
         width: 700px;
         height: 700px;
     }
