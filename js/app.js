@@ -1,5 +1,7 @@
 //@ts-check
 
+'use strict';
+
 class Card {
 
     constructor(symbolClass) {
