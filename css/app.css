@@ -198,10 +198,12 @@ h1 {
 }
 
 .win-overlay-button {
+    border: 0;
+    font-size: 19px;
     background-color: #02ccba;
     border-radius: 6px;
     color: white;
-    padding: 4px 28px;
+    padding: 6px 28px;
     margin-top: 10px;
     cursor: pointer;
     transition: .2s;
@@ -218,7 +220,7 @@ h1 {
     100% { transform: translateY(0px) }
 }
 
-.win-overlay.show p, .win-overlay.show a {
+.win-overlay.show p, .win-overlay.show a, .win-overlay.show button {
     animation: bounce .4s .7s;
 }
 
