@@ -1,16 +1,14 @@
 # Memory Game Project
 
-Project for the Udacity's [Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
+A memory game written in plain JavaScript. It's a project for the Udacity's [Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
 
-You can play the game here: http://htmlpreview.github.io/?https://github.com/AlbertVilaCalvo/Udacity-Memory-Game/blob/master/index.html
+Started from [https://github.com/udacity/fend-project-memory-game](https://github.com/udacity/fend-project-memory-game).
 
-Started from https://github.com/udacity/fend-project-memory-game
+[**PLAY THE GAME HERE!**](http://htmlpreview.github.io/?https://github.com/AlbertVilaCalvo/Udacity-Memory-Game/blob/master/index.html)
 
-## Table of Contents
+## Screenshot
 
-* [How to play the game](#how-to-play-the-game)
-* [Dependencies](#dependencies)
-* [Code from other students](#code-from-other-students)
+<img src="screenshots/Memory-Game-Screenshot.png" width="660px" title="Main Activity" alt="Main Activity">
 
 ## How to play the game
 
@@ -35,4 +33,3 @@ The game ends once all cards have been correctly matched.
 https://codepen.io/t0mbr0wn/project/editor/ZBBOob
 
 https://github.com/udacity/fend-project-memory-game/pull/2/files
-
