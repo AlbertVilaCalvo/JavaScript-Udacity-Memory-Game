@@ -1,10 +1,10 @@
-# Memory Game Project
+# JavaScript Memory Game Project
 
-A memory game written in plain JavaScript. It's a project for the Udacity's [Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
+A memory game written in plain JavaScript. It's a project of the Udacity's [Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
+
+[**PLAY THE GAME HERE! ⚡️**](https://albert-javascript-udacity-memory-game.netlify.app/)
 
 Started from [https://github.com/udacity/fend-project-memory-game](https://github.com/udacity/fend-project-memory-game).
-
-[**PLAY THE GAME HERE!**](http://htmlpreview.github.io/?https://github.com/AlbertVilaCalvo/Udacity-Memory-Game/blob/master/index.html)
 
 ## Screenshot
 
