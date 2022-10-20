@@ -8,7 +8,7 @@ Started from [https://github.com/udacity/fend-project-memory-game](https://githu
 
 ## Screenshot
 
-<img src="screenshots/Memory-Game-Screenshot.png" width="660px" title="Main Activity" alt="Main Activity">
+<a href="https://albert-javascript-udacity-memory-game.netlify.app/"><img src="screenshots/Memory-Game-Screenshot.png" width="660px" title="Play the game!" alt="Screenshot of the game"></a>
 
 ## React Native version
 
