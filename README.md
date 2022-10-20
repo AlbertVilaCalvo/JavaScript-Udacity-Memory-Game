@@ -2,13 +2,19 @@
 
 A memory game written in plain JavaScript. It's a project of the Udacity's [Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
 
-[**PLAY THE GAME HERE! ⚡️**](https://albert-javascript-udacity-memory-game.netlify.app/)
+[**⚡️ PLAY THE GAME! ⚡️**](https://albert-javascript-udacity-memory-game.netlify.app/)
 
 Started from [https://github.com/udacity/fend-project-memory-game](https://github.com/udacity/fend-project-memory-game).
 
 ## Screenshot
 
 <img src="screenshots/Memory-Game-Screenshot.png" width="660px" title="Main Activity" alt="Main Activity">
+
+## React Native version
+
+I've also built a mobile app version of this game using React Native.
+
+[**⚡️ Check the React Native version! ⚡️**](https://github.com/AlbertVilaCalvo/React-Native-Memory-Game)
 
 ## How to play the game
 
