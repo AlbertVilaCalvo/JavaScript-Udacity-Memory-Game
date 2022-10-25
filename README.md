@@ -39,3 +39,9 @@ The game ends once all cards have been correctly matched.
 https://codepen.io/t0mbr0wn/project/editor/ZBBOob
 
 https://github.com/udacity/fend-project-memory-game/pull/2/files
+
+## Deployment
+
+Hosted on Netlify at https://albert-javascript-udacity-memory-game.netlify.app/.
+
+It deploys automatically from GitHub, from the `master` branch.
