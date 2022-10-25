@@ -154,7 +154,7 @@ cardsContainer.addEventListener('click', event => {
 
     event.target.classList.add('open', 'show');
 
-    if (numberOfOpenCards() == 2) {
+    if (numberOfOpenCards() === 2) {
         moveCount++;
         renderMoveCount();
         renderStarRating();
@@ -171,7 +171,7 @@ cardsContainer.addEventListener('click', event => {
 
 /** @returns {boolean} */
 function allCardsMatched() {
-    return cards.filter(card => !card.isMatched()).length == 0;
+    return cards.filter(card => !card.isMatched()).length === 0;
 }
 
 /** @returns {number} */
