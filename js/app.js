@@ -267,7 +267,7 @@ function startTimer() {
 }
 
 function stopTimer() {
-    clearTimeout(timer);
+    clearInterval(timer);
 }
 
 
