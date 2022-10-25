@@ -121,7 +121,7 @@ function initCardsArray() {
 function addCardsHTMLToCardsContainer() {
     // Add all cards at once using a document fragment instead of adding them one by one
     const fragment = document.createDocumentFragment();
-    cards.forEach(card => {
+    cards.forEach(card => {
         fragment.appendChild(card.htmlElement);
     });
     cardsContainer.appendChild(fragment);
