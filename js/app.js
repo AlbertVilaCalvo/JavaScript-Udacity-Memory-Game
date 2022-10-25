@@ -106,7 +106,7 @@ function shuffle(array) {
 
 function initCardsArray() {
     /** @type {Array.<Card>} */
-    const tempCards = new Array();
+    const tempCards = [];
 
     /** @type {Array.<string>} */
     const symbolClasses = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt', 'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
