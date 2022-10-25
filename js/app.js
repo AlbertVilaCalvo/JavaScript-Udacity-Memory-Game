@@ -78,7 +78,7 @@ let cards;
 /** @type {number} */
 let moveCount;
 
-/** @type {number} */
+/** @type {number | null} */
 let timer;
 
 
